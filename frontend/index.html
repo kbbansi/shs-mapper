@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/location-icon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src='https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #display{
+            height: 500px;
+            width: auto;
+            margin-top: 20px;
+        }
+    </style>
+    <title>SHS Mapper</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="img/GPS-logo.jpg" width="163" height="71" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="test.html">For Developers</a>
+                </li>
+
+            </ul>
+            <span class="navbar-text">
+                <i>Search for SHS using Digital Address</i>
+            </span>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" id="address" name="address" placeholder="Search" aria-label="Search">
+                <input class="btn btn-outline-success my-2 my-sm-0" type="button" value="Search" id="submit" onclick="sendData();return false">
+            </form>
+        </div>
+    </nav>
+    <div class="row">
+        <!--<div class="col-4">
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" id="address" type="text" name="address">
+                <input class="btn btn-outline-success my-2 my-sm-0" type="button" value="Search" id="submit" onclick="sendData();return false">
+            </form>
+        </div>-->
+        <div class="col-12" id="display"></div>
+       <!-- <script>
+            /*function sendData() {
+                var address = document.getElementById('address').value;
+
+                alert(address);
+                var request = new XMLHttpRequest();
+
+                request.open('GET', 'http://localhost:9000/handlers/readOne.php?digitalAddress=' + address, true);
+
+                request.onload = function () {
+                    var data = JSON.parse(this.response);
+                    var schoolName = data.schoolName;
+                    var latitude = data.lat;
+                    var longitude = data.lng;
+
+                    console.log(latitude);
+                    alert(data.lat);
+
+
+                    mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2aW9uamF2ZSIsImEiOiJjanZiYXhwd2owY2I4M3pxdzBldjlqdWd1In0.nS2PprV8GhNK7y7v7rYGOw';
+                    var map = new mapboxgl.Map({
+                        container: 'display',
+                        style: 'mapbox://styles/mapbox/streets-v11',
+                        center:[longitude, latitude],
+                        zoom: 3
+                    });
+
+                    //map navigation control
+                    map.addControl(new mapboxgl.NavigationControl());
+
+                    //popup
+                    var popup = new mapboxgl.Popup({offset: 25}, {closeOnClick: false})
+                        .setLngLat([longitude, latitude])
+                        .setText(schoolName)
+                        .addTo(map);
+
+                    //marker
+                    var marker = new mapboxgl.Marker()
+                        .setLngLat([longitude, latitude])
+                        .setPopup(popup)
+                        .addTo(map);
+
+                    // The 'building' layer in the mapbox-streets vector source contains building-height data from OpenStreetMap.
+                    map.on('load', function () {
+                        // Insert the layer beneath any symbol layer.
+                        var layers = map.getStyle().layers;
+                        var labelLayerId;
+                        for (var i = 0; i < layers.length; i++) {
+                            if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+                                labelLayerId = layers[i].id;
+                                break;
+                            }
+                        }
+
+                        map.addLayer({
+                                'id': '3d-buildings',
+                                'source': 'composite',
+                                'source-layer': 'building',
+                                'filter': ['==', 'extrude', 'true'],
+                                'type': 'fill-extrusion',
+                                'minzoom': 15,
+                                'paint': {
+                                    'fill-extrusion-color': '#856335',
+                                    // use an 'interpolate' expression to add a smooth transition effect to the
+                                    // buildings as the user zooms in
+                                    'fill-extrusion-height': [
+                                        "interpolate", ["linear"], ["zoom"],
+                                        15, 0,
+                                        15.05, ["get", "height"]
+                                    ],
+                                    'fill-extrusion-base': [
+                                        "interpolate", ["linear"], ["zoom"],
+                                        15, 0,
+                                        15.05, ["get", "min_height"]
+                                    ],
+                                    'fill-extrusion-opacity': .6
+                                }
+                            },
+                            labelLayerId);
+                    });
+
+
+                };
+                request.send();
+            }*/
+        </script> -->
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
