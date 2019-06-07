@@ -10,8 +10,8 @@ class Database {
 	//db params
 	private $host = 'localhost';
 	private $dbName = 'school-mapper';
-	private $user = 'YOUR_DB_USER';
-	private $password = 'YOUR_DB_PASSWORD';
+	private $user = 'root';
+	private $password = 'devionJave';
 
 	private $conn;
 
