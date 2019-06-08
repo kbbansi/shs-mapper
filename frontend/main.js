@@ -4,7 +4,7 @@ function sendData() {
     alert(address);
     var request = new XMLHttpRequest();
 
-    request.open('GET', 'http://localhost:9000/handlers/readOne.php?digitalAddress='+address, true);
+    request.open('GET', 'handlers/readOne.php?digitalAddress='+address, true);
 
     request.onload = function () {
         var data = JSON.parse(this.response);
