@@ -12,6 +12,7 @@ class Database {
 	private $dbName = 'xnbhmfw1cnbr71v3';
 	private $user = 'oxyip5zim4ck16ix';
 	private $password = 'agh76r9s7js292nt';
+	private $port = 3306;
 
 	private $conn;
 
@@ -22,7 +23,7 @@ class Database {
 
 		//PDO Instance
 		try{
-			$this->conn = new PDO('mysql:host='.$this->host.';dbname='.$this->dbName,$this->user,$this->password);
+			$this->conn = new PDO('mysql:host='.$this->host.';dbname='.$this->dbName,$this->user,$this->password, $this->port);
 			//set error
 			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (PDOException $exception){
