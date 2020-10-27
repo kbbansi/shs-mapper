@@ -13,7 +13,7 @@ function sendData() {
         var longitude = data.lng;
 
 
-        mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2aW9uamF2ZSIsImEiOiJjanZiYXhwd2owY2I4M3pxdzBldjlqdWd1In0.nS2PprV8GhNK7y7v7rYGOw';
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2aW9uamF2ZSIsImEiOiJja2dzbGNqeTcwY2hmMnlwYnB4dnFhb3ZpIn0.x5iVZLzLJhMp89hBgofvqg';
         var map = new mapboxgl.Map({
             container: 'display',
             style: 'mapbox://styles/mapbox/streets-v11',
