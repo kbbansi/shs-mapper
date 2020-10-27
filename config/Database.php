@@ -23,7 +23,7 @@ class Database {
 
 		//PDO Instance
 		try{
-			$this->conn = new PDO('mysql:host='.$this->host.';dbname='.$this->dbName.';port='.$this->port.';'.$this->user,$this->password);
+			$this->conn = new PDO('mysql://rdhl6ymnx8qsjlst:dikw7xehjno6gebv@klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/a23uoirtxjsl5dea');
 			//set error
 			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (PDOException $exception){
