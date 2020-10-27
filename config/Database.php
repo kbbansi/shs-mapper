@@ -8,10 +8,10 @@
 
 class Database {
 	//db params
-	private $host = 'alv4v3hlsipxnujn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	';
-	private $dbName = 'xnbhmfw1cnbr71v3';
-	private $user = 'oxyip5zim4ck16ix';
-	private $password = 'agh76r9s7js292nt';
+	private $host = 'klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+	private $dbName = 'a23uoirtxjsl5dea';
+	private $user = 'rdhl6ymnx8qsjlst';
+	private $password = 'dikw7xehjno6gebv';
 	private $port = 3306;
 
 	private $conn;
